@@ -22,12 +22,13 @@ def get_apple_urls(url):
     #     file.write(response.text)
     soup = BeautifulSoup(response.text, 'lxml')
     # prodact_image = soup.find('div', class_='ty-column4').find('img')
-    product_type = soup.find('ul', class_='ut2-subcategories clearfix').find_all('li', class_='ut2-item level-0')[-1]
+    product_type = soup.find('ul', class_='ut2-subcategories clearfix').find_all('span')
+    
         # image_url_list = []
         # print(product_type)
     for page in product_type:
-            url = f'Print {page}'
-            print(url)
+                url = f'https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/{page.get_text()}/'
+                print(url)
 
 def main():
     # print(get_article_urls(url='https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/'))
