@@ -18,26 +18,24 @@ def get_apple_urls(url):
     s = requests.Session()
     response = s.get(url=url, headers=header)
 
-    # with open('./apple.html', 'w', encoding="utf-8") as file:
-    #     file.write(response.text)
+    with open('./apple.html', 'w', encoding="utf-8") as file:
+         file.write(response.text)
     soup = BeautifulSoup(response.text, 'lxml')
     # prodact_image = soup.find('div', class_='ty-column4').find('img')
     product_type = soup.find('ul', class_='ut2-subcategories clearfix').find_all('span')
     
-        # image_url_list = []
-        # print(product_type)
     for page in product_type:
         url = f'https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/{page.get_text()}/'
         # print(url)
         
-    phones_url = soup.find_all('div', class_= 'ty-column4')
-    print(phones_url.find('a'))
+        for phones_url in soup.find_all('div', class_= 'ut2-gl__image'):
+            print(phones_url.get('href'))
 
         
 
 def main():
     # print(get_article_urls(url='https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/'))
-    get_apple_urls(url='https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/apple/')
+    get_apple_urls(url='https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/page-2/?items_per_page=128')
 
 if __name__ == '__main__':
     main()
