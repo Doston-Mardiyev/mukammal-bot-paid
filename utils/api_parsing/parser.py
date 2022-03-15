@@ -27,8 +27,13 @@ def get_apple_urls(url):
         # image_url_list = []
         # print(product_type)
     for page in product_type:
-                url = f'https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/{page.get_text()}/'
-                print(url)
+        url = f'https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/{page.get_text()}/'
+        # print(url)
+        
+    phones_url = soup.find_all('div', class_= 'ty-column4')
+    print(phones_url.find('a'))
+
+        
 
 def main():
     # print(get_article_urls(url='https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/'))
