@@ -33,6 +33,9 @@ def get_apple_urls(url):
 
         
 
+
+
+
 def main():
     # print(get_article_urls(url='https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/'))
     get_apple_urls(url='https://elmakon.uz/telefony-gadzhety-aksessuary/smartfony/page-2/?items_per_page=128')
